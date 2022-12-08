@@ -5,13 +5,15 @@ import "../../../scss/components/_control-panel.scss";
 import "../../../scss/components/_link.scss";
 
 const ControlPanel: FC = () => {
-  const { unfinishedTodos } = useTodosLogic();
+  const { incompleteCount, clearCompleted } = useTodosLogic();
 
   return (
     <div className='control-panel'>
-      <div className='control-panel__unfinished-count'>{`${unfinishedTodos} items left`}</div>
+      <div className='control-panel__incomplete-count'>{`${incompleteCount} items left`}</div>
       <Filters />
-      <span className='link'>Clear completed</span>
+      <span className='link' onClick={clearCompleted}>
+        Clear completed
+      </span>
     </div>
   );
 };

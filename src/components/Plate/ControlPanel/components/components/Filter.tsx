@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { FILTERS } from "../../../../../constants";
 import useFilterLogic from "../../../../../hooks/useFilterLogic";
-
 import "./../../../../../scss/components/_filters.scss";
 
 type FilterT = {

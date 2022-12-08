@@ -5,3 +5,4 @@ export enum FILTERS {
   COMPLETED = "Completed",
 }
 export const ALL_FILTERS = [FILTERS.ALL, FILTERS.ACTIVE, FILTERS.COMPLETED];
+export const LOCAL_STORAGE_KEY = "ToDo App";

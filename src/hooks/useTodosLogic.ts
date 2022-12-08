@@ -1,31 +1,20 @@
-// import { FC } from "react";
-
-import { useContext, useEffect } from "react";
-import { DispatchContext, ThemeContext } from "../context/ThemeContext";
-import { THEME_ACTIONS } from "../context/ThemeTypes";
+import { FC } from "react";
+import { useCallback, useContext, useEffect, useMemo } from "react";
+import { FILTERS, LOCAL_STORAGE_KEY } from "../constants";
+import { DispatchContext, Context } from "../context/Context";
+import { ACTIONS } from "../context/types";
 import { TodoI } from "../model/types";
 
-const LOCAL_STORAGE_KEY = "ToDo App";
-
 const useTodosLogic = () => {
+  // TODO: improve performance
+  // TODO: add typization
   const dispatch = useContext(DispatchContext);
-  const { todoList } = useContext(ThemeContext);
+  const { todoList, selectedFilter } = useContext(Context);
 
   const setNewTodos = (newTodoList: TodoI[]) => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTodoList));
-    dispatch({ type: THEME_ACTIONS.CHANGE_TODOS, payload: newTodoList });
+    dispatch({ type: ACTIONS.CHANGE_TODOS, payload: newTodoList });
   };
-
-  const getTodoList = (): TodoI[] => {
-    const jsonList: string = localStorage.getItem(LOCAL_STORAGE_KEY) || "[]";
-    const parcedList: string = JSON.parse(jsonList);
-    dispatch({ type: THEME_ACTIONS.CHANGE_TODOS, payload: parcedList });
-
-    return JSON.parse(jsonList);
-  };
-  useEffect(() => {
-    getTodoList();
-  }, []);
 
   const addTodo = (todo: TodoI) => {
     const todos = todoList;
@@ -39,30 +28,37 @@ const useTodosLogic = () => {
     setNewTodos(newTodos);
   };
 
-  // const toggleIsActiveTodo = (id: string) => {
-  //   const todos = todoList;
-  //   const todo = todos.find((todo) => todo.id === id);
-  //   const newTodo = { isCompleted: !todo?.isCompleted, ...todo };
-  //   const
-  //   setNewTodos(newTodos);
-  // };
+  const filteredList = useMemo(() => {
+    switch (selectedFilter) {
+      case FILTERS.ALL: {
+        return todoList;
+      }
+      case FILTERS.COMPLETED: {
+        return todoList.filter((item: TodoI) => item.isCompleted === true);
+      }
+      case FILTERS.ACTIVE: {
+        return todoList.filter((item: TodoI) => item.isCompleted === false);
+      }
+    }
+  }, [selectedFilter, todoList]);
 
-  const clearDone = () => {
+  const clearCompleted = () => {
     const todos = todoList;
     const newTodos = todos.filter((item) => item.isCompleted === false);
     setNewTodos(newTodos);
   };
 
-  const filterActive = () => {
-    const todos = todoList;
-    const newTodos = todos.filter((item) => item.isCompleted === true);
-    return newTodos;
-  };
-
-  const unfinishedTodos = todoList.filter(
-    (item) => item.isCompleted === true
+  const incompleteCount = todoList.filter(
+    (item) => item.isCompleted === false
   ).length;
-  return { addTodo, deleteTodo, clearDone, filterActive, unfinishedTodos };
+
+  return {
+    addTodo,
+    deleteTodo,
+    clearCompleted,
+    incompleteCount,
+    filteredList,
+  };
 };
 
 export default useTodosLogic;

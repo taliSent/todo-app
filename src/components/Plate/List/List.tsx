@@ -1,13 +1,14 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect } from "react";
 import Task from "./Todo/Task";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { Context } from "../../../context/Context";
 import "./../../../scss/components/_list.scss";
+import useTodosLogic from "../../../hooks/useTodosLogic";
 
 const List: FC = () => {
-  const { todoList } = useContext(ThemeContext);
+  const { filteredList } = useTodosLogic();
   return (
     <ul className='list'>
-      {todoList.map((props) => (
+      {filteredList.map((props) => (
         <Task key={props.id} {...props} />
       ))}
     </ul>

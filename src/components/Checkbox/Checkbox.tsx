@@ -13,7 +13,7 @@ type TCheckbox = {
 const WithCheckbox = forwardRef<HTMLInputElement, TCheckbox>((props, ref) => {
   const { children, isChecked, id, clearTodo } = props;
   const { deleteTodo } = useTodosLogic();
-
+  //TODO: fix ts error
   return (
     <label className='container'>
       <>{children}</>
