@@ -1,0 +1,14 @@
+@use "../mixins/plate" as *;
+@use "../abstracts/colors";
+
+.control-panel {
+    @include plate;
+    display: flex;
+    align-items: center;
+    font-size: small;
+
+    &__unfinished-count {
+        font-size: x-small;
+        color: colors.$dark-grayish-blue;
+    }
+}

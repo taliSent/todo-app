@@ -1,0 +1,11 @@
+@use "../abstracts/colors";
+
+.link:hover {
+    color: colors.$light-grayish-blue-hover;
+}
+
+.filter {
+    &__selected {
+        color: colors.$bright-blue;
+    }
+}

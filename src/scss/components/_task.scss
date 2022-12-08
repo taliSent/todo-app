@@ -1,0 +1,21 @@
+@use "../abstracts/colors";
+@use "../mixins/plate" as *;
+
+.task {
+   @include plate;
+   display: flex;
+   margin: 0 auto;
+   text-align: center;
+   list-style: none;
+
+   &:not(:last-child) {
+      border-bottom: 1px solid colors.$very-dark-grayish-blue;
+   }
+   &--completed {
+      color: red;
+   }
+   &__text {
+      width: 100%;
+      text-align: left;
+   }
+}

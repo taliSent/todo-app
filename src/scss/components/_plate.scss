@@ -1,0 +1,7 @@
+@use "../abstracts/sizes";
+
+.plate {
+   margin: 0 auto;
+   width: sizes.$plate-width;
+   transform: translateY(-3em);
+}
