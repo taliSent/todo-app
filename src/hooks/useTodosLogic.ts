@@ -1,34 +1,30 @@
-import { FC } from "react";
-import { useCallback, useContext, useEffect, useMemo } from "react";
-import { FILTERS, LOCAL_STORAGE_KEY } from "../constants";
-import { DispatchContext, Context } from "../context/Context";
-import { ACTIONS } from "../context/types";
+import { useContext, useMemo } from "react";
+import { FILTERS } from "../constants";
+import { Context, DispatchContext } from "../context/Context";
 import { TodoI } from "../model/types";
+import { setNewTodos } from "../utils/utils";
 
 const useTodosLogic = () => {
   // TODO: improve performance
-  // TODO: add typization
+  // TODO: add typization to all the hooks
   const dispatch = useContext(DispatchContext);
+  const updateTodos = setNewTodos(dispatch);
   const { todoList, selectedFilter } = useContext(Context);
 
-  const setNewTodos = (newTodoList: TodoI[]) => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTodoList));
-    dispatch({ type: ACTIONS.CHANGE_TODOS, payload: newTodoList });
-  };
-
   const addTodo = (todo: TodoI) => {
-    const todos = todoList;
+    const todos = [...todoList];
     todos.push(todo);
-    setNewTodos(todos);
+    updateTodos(todos);
   };
 
   const deleteTodo = (id: string) => {
-    const todos = todoList;
+    const todos = [...todoList];
     const newTodos = todos.filter((item) => item.id !== id);
-    setNewTodos(newTodos);
+    updateTodos(newTodos);
   };
 
   const filteredList = useMemo(() => {
+    console.log("filteredList", todoList, selectedFilter);
     switch (selectedFilter) {
       case FILTERS.ALL: {
         return todoList;
@@ -43,9 +39,20 @@ const useTodosLogic = () => {
   }, [selectedFilter, todoList]);
 
   const clearCompleted = () => {
-    const todos = todoList;
+    const todos = [...todoList];
     const newTodos = todos.filter((item) => item.isCompleted === false);
-    setNewTodos(newTodos);
+    updateTodos(newTodos);
+  };
+
+  const toggleIsCompletedTodo = (id: string | undefined) => {
+    if (id === undefined) return;
+    const todos = [...todoList];
+    const todo = todos.find((todo) => todo.id === id);
+    if (todo?.id === undefined) return;
+    const newTodo = { ...todo, isCompleted: !todo?.isCompleted };
+    const index = todos.findIndex((item) => item.id === id);
+    todos.splice(index, 1, newTodo);
+    updateTodos(todos);
   };
 
   const incompleteCount = todoList.filter(
@@ -56,6 +63,7 @@ const useTodosLogic = () => {
     addTodo,
     deleteTodo,
     clearCompleted,
+    toggleIsCompletedTodo,
     incompleteCount,
     filteredList,
   };

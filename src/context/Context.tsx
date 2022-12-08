@@ -1,17 +1,9 @@
-import {
-  createContext,
-  Dispatch,
-  FunctionComponent,
-  useEffect,
-  useReducer,
-} from "react";
+import { createContext, Dispatch, FunctionComponent, useReducer } from "react";
 import { FILTERS } from "../constants";
-import { getTodoList } from "../utils/utils";
 import themeReducer from "./Reducer";
-import { ACTIONS, ActionT, StateT } from "./types";
+import { ActionT, StateT } from "./types";
 
 const initialValues: StateT = {
-  //TODO: custom
   todoList: [],
   selectedFilter: FILTERS.ALL,
   isDarkTheme: true,

@@ -28,6 +28,7 @@
   }
 
   /* Create a custom checkbox */
+
   &__checkmark {
     position: absolute;
     top: 0;
@@ -47,20 +48,13 @@
 
     /* On mouse-over, add a frame */
 
-    &:hover:not(:has(+ input:checked))::after {
-      position: relative;
-      display: block;
-      height: 1em;
-      width: 1em;
-      padding: 5px;
+    &:hover:not(:has(+ input:checked)) {
       border: 1px solid colors.$bright-blue;
-      border-radius: 50%;
-      // border-image-source: colors.$check-background;
     }
 
     /* When the checkbox is checked, add a blue background */
 
-    &:has(+ input:checked) {
+    &:has(> input:checked) {
       background: colors.$check-background;
       border: none;
 

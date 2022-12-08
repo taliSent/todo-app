@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { FC } from "react";
+import useTodosLogic from "../../../../hooks/useTodosLogic";
 import WithCheckbox from "../../../Checkbox/Checkbox";
 import "./../../../../scss/components/_task.scss";
 
@@ -10,11 +11,15 @@ type TaskT = {
 };
 
 const Task: FC<TaskT> = ({ title, isCompleted, id }: TaskT) => {
+  const { toggleIsCompletedTodo } = useTodosLogic();
+  const handleClick = () => toggleIsCompletedTodo(id);
   const className = `task task--${isCompleted ? "completed" : ""}`;
   return (
     <li className={className}>
       <WithCheckbox isChecked={isCompleted} id={id}>
-        <div className='task__text'>{title}</div>
+        <div className='task__text' onClick={handleClick}>
+          {title}
+        </div>
       </WithCheckbox>
     </li>
   );
