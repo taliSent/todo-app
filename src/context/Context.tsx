@@ -1,13 +1,12 @@
 import { createContext, Dispatch, FunctionComponent, useReducer } from "react";
-import { FILTERS } from "../constants";
+import { FILTERS, IS_DEFAULT_DARK } from "../constants";
 import themeReducer from "./Reducer";
 import { ActionT, StateT } from "./types";
 
 const initialValues: StateT = {
   todoList: [],
   selectedFilter: FILTERS.ALL,
-  isDarkTheme: true,
-  isDesktop: true,
+  isDarkTheme: IS_DEFAULT_DARK,
 };
 
 export const Context = createContext(initialValues);

@@ -1,21 +1,17 @@
-import { useContext } from "react";
-import { IMG_URL } from "../../../../constants";
-import { DispatchContext } from "../../../../context/Context";
+import useTitleLogic from "../../../../hooks/useTitleLogic";
 import "./../../../../scss/components/_title.scss";
 
 const TITLE = "T O D O";
 
 const Title = () => {
-  const dispatch = useContext(DispatchContext);
-  const handleChangeTheme = () => {};
-  //ACTIONS.SWITCH_THEME
+  const { imgAdress, handleToggleTheme } = useTitleLogic();
   return (
     <h1 className='title'>
       <div>{TITLE}</div>
       <img
-        src={`${IMG_URL}/icon-sun.svg`}
+        src={imgAdress}
         className='toggle-theme-icon'
-        onClick={handleChangeTheme}
+        onClick={handleToggleTheme}
       />
     </h1>
   );

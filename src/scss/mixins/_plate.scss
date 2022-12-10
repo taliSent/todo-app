@@ -1,6 +1,8 @@
 @use "../abstracts/colors";
+@use "./themify" as *;
 
 @mixin plate {
-  background-color: colors.$very-dark-desaturated-blue;
-  padding: 0.5em 0.7em;
+  @include themify("background-color", "plate");
+  @include themify("color", "text");
+  padding: 0.7em 0.7em;
 }

@@ -10,7 +10,7 @@ const Input: FC = () => {
     <div className='input'>
       <WithCheckbox ref={checkboxRef} clearTodo={clearTodo}>
         <input
-          className='input__text'
+          className='input__html'
           ref={inputRef}
           type='text'
           onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => addTodoOnEnter(e)}

@@ -1,18 +1,14 @@
+import { FC } from "react";
 import Header from "./components/Header/Header";
 import Plate from "./components/Plate/Plate";
-import { DispatchContext, withContextProvider } from "./context/Context";
-import { FC, useContext, useEffect } from "react";
-import { ACTIONS } from "./context/types";
-import { getTodoList } from "./utils/utils";
+import { withContextProvider } from "./context/Context";
+import useAppLogic from "./hooks/useAppLogic";
 import "./index.scss";
 
 const App: FC = () => {
-  const dispatch = useContext(DispatchContext);
-  useEffect(() => {
-    dispatch({ type: ACTIONS.CHANGE_TODOS, payload: getTodoList(dispatch) });
-  }, []);
+  const { themeName } = useAppLogic();
   return (
-    <div className='App' data-theme='dark'>
+    <div className={`App App--${themeName}`}>
       <Header />
       <Plate />
     </div>

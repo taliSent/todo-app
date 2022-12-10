@@ -22,6 +22,8 @@
     opacity: 0;
     height: 1.2em;
     width: 1.2em;
+    cursor: pointer;
+
     &:hover {
       border: none;
     }
@@ -48,7 +50,7 @@
 
     /* On mouse-over, add a frame */
 
-    &:hover:not(:has(+ input:checked)) {
+    &:hover:not(:has(> input:checked)) {
       border: 1px solid colors.$bright-blue;
     }
 
@@ -62,7 +64,7 @@
 
       &::after {
         display: block;
-        left: 40%;
+        left: 35%;
         top: 15%;
         width: 5px;
         height: 10px;

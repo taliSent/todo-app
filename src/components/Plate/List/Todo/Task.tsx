@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { FC } from "react";
 import useTodosLogic from "../../../../hooks/useTodosLogic";
 import WithCheckbox from "../../../Checkbox/Checkbox";

@@ -1,0 +1,24 @@
+@use "./colors";
+
+$themeNames: "light", "dark";
+
+$themes: (
+    light: (
+        background: colors.$very-light-gray,
+        plate: colors.$white,
+        text: colors.$very-dark-grayish-blue,
+        text-crossed: colors.$dark-grayish-blue,
+        link: colors.$dark-grayish-blue,
+        link-hover: colors.$very-dark-grayish-blue,
+        border: colors.$light-grayish-blue,
+    ),
+    dark: (
+        background: colors.$very-dark-blue,
+        plate: colors.$very-dark-desaturated-blue,
+        text: colors.$light-grayish-blue,
+        text-crossed: colors.$dark-grayish-blue,
+        link: colors.$dark-grayish-blue,
+        link-hover: colors.$light-grayish-blue-hover,
+        border: colors.$very-dark-grayish-blue,
+    ),
+);

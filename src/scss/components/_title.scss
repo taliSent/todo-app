@@ -3,13 +3,16 @@
 .title {
     color: white;
     margin: 0 auto;
-    transform: translateY(-2.5em);
+    transform: translateY(-6em);
     width: sizes.$plate-width;
     display: flex;
     align-items: end;
     justify-content: space-between;
+    font-size: x-large;
 }
 
 .toggle-theme-icon {
+    height: 1.2ch;
     align-self: center;
+    cursor: pointer;
 }

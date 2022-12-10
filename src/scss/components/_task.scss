@@ -1,16 +1,23 @@
-@use "../abstracts/colors";
+@use "../abstracts/sizes";
 @use "../mixins/plate" as *;
+@use "../mixins/themify" as *;
+
+$br: sizes.$br;
 
 .task {
    @include plate;
+   @include themify("border-bottom-color", "border");
    display: flex;
    margin: 0 auto;
    text-align: center;
    list-style: none;
-   border-bottom: 1px solid colors.$very-dark-grayish-blue;
+   border-bottom: 1px solid;
+   &:first-child {
+      border-radius: 5px 5px 0 0;
+   }
 
    &--completed {
-      color: colors.$dark-grayish-blue;
+      @include themify("color", "text-crossed");
       text-decoration: line-through;
    }
    &__text {

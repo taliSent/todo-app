@@ -5,16 +5,11 @@ export type StateT = {
   todoList: TodoI[];
   selectedFilter: FILTERS;
   isDarkTheme: boolean;
-  isDesktop: boolean;
 };
 
 export type ActionT = {
-  type:
-    | ACTIONS.SWITCH_THEME
-    | ACTIONS.CHANGE_SCREEN
-    | ACTIONS.CHANGE_TODOS
-    | ACTIONS.SELECT_FILTER;
-  payload: any;
+  type: ACTIONS.SWITCH_THEME | ACTIONS.CHANGE_TODOS | ACTIONS.SELECT_FILTER;
+  payload?: any;
 };
 
 export enum ACTIONS {

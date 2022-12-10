@@ -1,14 +1,16 @@
+@use "../abstracts/sizes";
 @use "../mixins/plate" as *;
-@use "../abstracts/colors";
+@use "./../mixins/themify" as *;
+$br: sizes.$br;
 
 .control-panel {
     @include plate;
+    @include themify("color", "link");
     display: flex;
     align-items: center;
     font-size: small;
-
+    border-radius: 0 0 $br $br;
     &__incomplete-count {
         font-size: x-small;
-        color: colors.$dark-grayish-blue;
     }
 }

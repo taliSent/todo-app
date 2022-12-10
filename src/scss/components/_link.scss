@@ -1,11 +1,15 @@
 @use "../abstracts/colors";
+@use "./../mixins/themify" as *;
 
-.link:hover {
-    color: colors.$light-grayish-blue-hover;
+.link {
+    cursor: pointer;
+    &:hover {
+        @include themify("color", "link-hover");
+    }
 }
 
 .filter {
     &__selected {
-        color: colors.$bright-blue;
+        color: colors.$bright-blue !important;
     }
 }
