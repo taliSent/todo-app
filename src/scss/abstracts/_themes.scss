@@ -11,6 +11,7 @@ $themes: (
         link: colors.$dark-grayish-blue,
         link-hover: colors.$very-dark-grayish-blue,
         border: colors.$light-grayish-blue,
+        caret: colors.$bright-cyan,
     ),
     dark: (
         background: colors.$very-dark-blue,
@@ -20,5 +21,6 @@ $themes: (
         link: colors.$dark-grayish-blue,
         link-hover: colors.$light-grayish-blue-hover,
         border: colors.$very-dark-grayish-blue,
+        caret: colors.$bright-magenta,
     ),
 );

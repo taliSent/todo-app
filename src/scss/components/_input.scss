@@ -1,5 +1,6 @@
 @use "../abstracts/fonts";
 @use "../abstracts/sizes";
+@use "../abstracts/colors";
 @use "../mixins/plate" as *;
 @use "./../mixins/themify" as *;
 
@@ -8,7 +9,7 @@ $br: sizes.$br;
 .input {
    @include plate;
    border-radius: $br $br $br $br;
-
+   @include themify("caret-color", "caret");
    &__html {
       @include themify("background-color", "plate");
       @include themify("color", "text");

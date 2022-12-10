@@ -1,4 +1,4 @@
-import { forwardRef, memo, ReactElement } from "react";
+import { forwardRef, ReactElement } from "react";
 import { IMG_URL } from "../../constants";
 import useTodosLogic from "../../hooks/useTodosLogic";
 import "./../../scss/components/_checkbox.scss";
