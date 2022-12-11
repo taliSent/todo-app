@@ -1,4 +1,4 @@
-export const IMG_URL = "dist/assets";
+export const IMG_URL = "img";
 export enum FILTERS {
   ALL = "All",
   ACTIVE = "Active",
