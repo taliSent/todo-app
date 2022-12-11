@@ -7,7 +7,7 @@ type CheckboxT = {
   children: ReactElement<any, any>;
   id?: string;
   isChecked?: boolean;
-  clearTodo?: () => void;
+  clearTodo: () => void;
 };
 
 const WithCheckbox = forwardRef<HTMLInputElement, CheckboxT>((props, ref) => {

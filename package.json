@@ -9,8 +9,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "typedoc": "typedoc --out docs src && touch docs/.nojekyll",
-    "deploy": "gh-pages -d dist"
-
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "audit": "^0.0.6",
