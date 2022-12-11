@@ -4,6 +4,7 @@ import { TodoI } from "../model/types";
 export type StateT = {
   todoList: TodoI[];
   selectedFilter: FILTERS;
+  filteredList: TodoI[];
   isDarkTheme: boolean;
 };
 

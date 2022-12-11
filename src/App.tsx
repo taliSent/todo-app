@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Plate from "./components/Plate/Plate";
 import { withContextProvider } from "./context/Context";

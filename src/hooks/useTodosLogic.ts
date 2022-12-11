@@ -5,11 +5,10 @@ import { TodoI } from "../model/types";
 import { setNewTodos } from "../utils/utils";
 
 const useTodosLogic = () => {
-  // TODO: improve performance
   // TODO: add typization to all the hooks
   const dispatch = useContext(DispatchContext);
+  const { todoList, filteredList } = useContext(Context);
   const updateTodos = setNewTodos(dispatch);
-  const { todoList, selectedFilter } = useContext(Context);
 
   const addTodo = (todo: TodoI) => {
     const todos = [...todoList];
@@ -22,21 +21,6 @@ const useTodosLogic = () => {
     const newTodos = todos.filter((item) => item.id !== id);
     updateTodos(newTodos);
   };
-
-  const filteredList = useMemo(() => {
-    console.log("filteredList", todoList, selectedFilter);
-    switch (selectedFilter) {
-      case FILTERS.ALL: {
-        return todoList;
-      }
-      case FILTERS.COMPLETED: {
-        return todoList.filter((item: TodoI) => item.isCompleted === true);
-      }
-      case FILTERS.ACTIVE: {
-        return todoList.filter((item: TodoI) => item.isCompleted === false);
-      }
-    }
-  }, [selectedFilter, todoList]);
 
   const clearCompleted = () => {
     const todos = [...todoList];
@@ -65,8 +49,8 @@ const useTodosLogic = () => {
     clearCompleted,
     updateTodos,
     toggleIsCompletedTodo,
-    incompleteCount,
     filteredList,
+    incompleteCount,
   };
 };
 

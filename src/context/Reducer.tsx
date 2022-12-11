@@ -1,3 +1,4 @@
+import { filterList } from "../utils/utils";
 import { ActionT, StateT, ACTIONS } from "./types";
 
 const themeReducer = (state: StateT, action: ActionT) => {
@@ -6,10 +7,18 @@ const themeReducer = (state: StateT, action: ActionT) => {
       return { ...state, isDarkTheme: !state.isDarkTheme };
     }
     case ACTIONS.CHANGE_TODOS: {
-      return { ...state, todoList: action.payload };
+      return {
+        ...state,
+        todoList: action.payload,
+        filteredList: filterList(state.todoList, state.selectedFilter),
+      };
     }
     case ACTIONS.SELECT_FILTER: {
-      return { ...state, selectedFilter: action.payload };
+      return {
+        ...state,
+        selectedFilter: action.payload,
+        filteredList: filterList(state.todoList, action.payload),
+      };
     }
   }
 };

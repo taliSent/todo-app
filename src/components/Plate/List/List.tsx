@@ -1,12 +1,12 @@
-import { FC, useContext, useEffect } from "react";
-import Task from "./Todo/Task";
-import { Context } from "../../../context/Context";
-import "./../../../scss/components/_list.scss";
-import useTodosLogic from "../../../hooks/useTodosLogic";
 import { Reorder } from "framer-motion";
+import { FC } from "react";
+import useTodosLogic from "../../../hooks/useTodosLogic";
+import "./../../../scss/components/_list.scss";
+import Task from "./Todo/Task";
 
 const List: FC = () => {
-  const { filteredList, updateTodos } = useTodosLogic();
+  const { updateTodos, filteredList } = useTodosLogic();
+
   return (
     <Reorder.Group
       axis='y'

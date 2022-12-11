@@ -6,6 +6,7 @@ import { ActionT, StateT } from "./types";
 const initialValues: StateT = {
   todoList: [],
   selectedFilter: FILTERS.ALL,
+  filteredList: [],
   isDarkTheme: IS_DEFAULT_DARK,
 };
 

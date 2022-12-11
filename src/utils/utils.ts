@@ -1,4 +1,5 @@
-import { LOCAL_STORAGE_KEY } from "../constants";
+import { useCallback } from "react";
+import { FILTERS, LOCAL_STORAGE_KEY } from "../constants";
 import { ACTIONS, ActionT } from "../context/types";
 import { TodoI } from "../model/types";
 
@@ -14,3 +15,17 @@ export const setNewTodos =
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTodoList));
     dispatch({ type: ACTIONS.CHANGE_TODOS, payload: newTodoList });
   };
+
+export const filterList = (todoList: TodoI[], selectedFilter: FILTERS) => {
+  switch (selectedFilter) {
+    case FILTERS.ALL: {
+      return todoList;
+    }
+    case FILTERS.COMPLETED: {
+      return todoList.filter((item: TodoI) => item.isCompleted === true);
+    }
+    case FILTERS.ACTIVE: {
+      return todoList.filter((item: TodoI) => item.isCompleted === false);
+    }
+  }
+};
