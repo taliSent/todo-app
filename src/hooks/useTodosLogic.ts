@@ -63,6 +63,7 @@ const useTodosLogic = () => {
     addTodo,
     deleteTodo,
     clearCompleted,
+    updateTodos,
     toggleIsCompletedTodo,
     incompleteCount,
     filteredList,

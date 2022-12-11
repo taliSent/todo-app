@@ -3,15 +3,23 @@ import Task from "./Todo/Task";
 import { Context } from "../../../context/Context";
 import "./../../../scss/components/_list.scss";
 import useTodosLogic from "../../../hooks/useTodosLogic";
+import { Reorder } from "framer-motion";
 
 const List: FC = () => {
-  const { filteredList } = useTodosLogic();
+  const { filteredList, updateTodos } = useTodosLogic();
   return (
-    <ul className='list'>
-      {filteredList.map((props) => (
-        <Task key={props.id} {...props} />
+    <Reorder.Group
+      axis='y'
+      values={filteredList}
+      onReorder={updateTodos}
+      className='list'
+    >
+      {filteredList.map((item) => (
+        <Reorder.Item key={item.id} value={item}>
+          <Task key={item.id} {...item} />
+        </Reorder.Item>
       ))}
-    </ul>
+    </Reorder.Group>
   );
 };
 export default List;

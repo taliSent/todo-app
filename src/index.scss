@@ -10,7 +10,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+ul,
+li {
+  list-style: none;
+}
 .App {
   @include themify("background-color", "background");
   height: 100vh;
