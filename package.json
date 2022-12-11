@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typedoc": "typedoc --out docs src && touch docs/.nojekyll"
   },
   "dependencies": {
     "audit": "^0.0.6",
