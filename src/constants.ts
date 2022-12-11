@@ -1,4 +1,4 @@
-export const IMG_URL = "public";
+export const IMG_URL = "docs";
 export enum FILTERS {
   ALL = "All",
   ACTIVE = "Active",
