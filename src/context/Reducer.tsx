@@ -10,7 +10,7 @@ const themeReducer = (state: StateT, action: ActionT) => {
       return {
         ...state,
         todoList: action.payload,
-        filteredList: filterList(state.todoList, state.selectedFilter),
+        filteredList: filterList(action.payload, state.selectedFilter),
       };
     }
     case ACTIONS.SELECT_FILTER: {

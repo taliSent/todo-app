@@ -12,7 +12,7 @@ const useTodosLogic = () => {
 
   const addTodo = (todo: TodoI) => {
     const todos = [...todoList];
-    todos.push(todo);
+    todos.unshift(todo);
     updateTodos(todos);
   };
 
