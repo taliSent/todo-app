@@ -10,6 +10,7 @@ const Plate: FC = () => {
       <Input />
       <List />
       <ControlPanel />
+      <div className='plate__prompt'>Drag and drop to reorder list</div>
     </div>
   );
 };
