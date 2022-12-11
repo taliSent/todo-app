@@ -1,19 +1,22 @@
 {
   "name": "todo-app",
   "private": true,
-  "version": "0.0.0", 
+  "version": "0.0.0",
   "homepage": "https://talisent.github.io/todo-list/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "typedoc": "typedoc --out docs src && touch docs/.nojekyll"
+    "typedoc": "typedoc --out docs src && touch docs/.nojekyll",
+    "deploy": "gh-pages -d dist"
+
   },
   "dependencies": {
     "audit": "^0.0.6",
     "fix": "^0.0.6",
     "framer-motion": "^7.6.19",
+    "gh-pages": "^4.0.0",
     "npm": "^9.1.1",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.2",
