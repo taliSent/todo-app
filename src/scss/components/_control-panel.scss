@@ -9,6 +9,9 @@ $br: sizes.$br;
     display: flex;
     align-items: center;
     font-size: small;
+    @media screen and (max-width: 400px) {
+        font-size: x-small;
+    }
     border-radius: 0 0 $br $br;
     &__incomplete-count {
         font-size: x-small;

@@ -6,7 +6,6 @@ import "./../../../../scss/components/_background-image.scss";
 
 const BackgroundImage = () => {
   const { isDarkTheme } = useContext(Context);
-  // FIX ME: add new themes & screen sizes
   return (
     <>
       <img
