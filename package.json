@@ -10,8 +10,7 @@
     "preview": "vite preview",
     "typedoc": "typedoc --out docs src && touch docs/.nojekyll",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "brr": "node-sass -r -w src/scss --output-style compressed -o dist src/index.scss"
+    "deploy": "gh-pages -d dist"  
   },
   "dependencies": {
     "audit": "^0.0.6",
