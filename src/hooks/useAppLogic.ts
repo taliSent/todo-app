@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { Context, DispatchContext } from "../context/Context";
-import { getTodoList } from "../utils/utils";
+import { Context, DispatchContext } from "@/context/Context";
+import { getTodoList } from "@utils/utils";
 
 const useAppLogic = () => {
   const dispatch = useContext(DispatchContext);

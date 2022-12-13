@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { FILTERS, LOCAL_STORAGE_KEY } from "../constants";
 import { ACTIONS, ActionT } from "../context/types";
 import { TodoI } from "../model/types";

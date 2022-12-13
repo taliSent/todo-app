@@ -1,8 +1,7 @@
-import { useContext, useMemo } from "react";
-import { FILTERS } from "../constants";
+import { useContext } from "react";
 import { Context, DispatchContext } from "../context/Context";
 import { TodoI } from "../model/types";
-import { setNewTodos } from "../utils/utils";
+import { setNewTodos } from "@utils/utils";
 
 const useTodosLogic = () => {
   // TODO: add typization to all the hooks

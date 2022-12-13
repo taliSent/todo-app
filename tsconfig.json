@@ -15,12 +15,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src",
-    // "paths": {
-    //     "@/*": ["src/*"],
-    //     "@components/*": ["src/components/*"],
-    //     "@scss/*": ["src/scss/*"],
-    // }
+    "baseUrl": "./",
+    "paths": {
+        "@/*": ["src/*"],
+        "@components/*": ["src/components/*"],
+        "@scss/*": ["src/scss/*"],
+        "@utils/*": ["src/utils/*"],
+        "@hooks/*": ["src/hooks/*"],
+
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -1,8 +1,7 @@
 import { FC, useContext } from "react";
-import { Context } from "../../../../context/Context";
+import { Context } from "@/context/Context";
 import { getBackgroundSrc } from "../../utils/utils";
-// FIX ME: imports
-import "./../../../../scss/components/_background-image.scss";
+import "@scss/components/_background-image.scss";
 
 const BackgroundImage: FC = () => {
   const { isDarkTheme } = useContext(Context);

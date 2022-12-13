@@ -1,5 +1,5 @@
-import useTitleLogic from "../../../../hooks/useTitleLogic";
-import "./../../../../scss/components/_title.scss";
+import useTitleLogic from "@hooks/useTitleLogic";
+import "@scss/components/_title.scss";
 
 const TITLE = "T O D O";
 
