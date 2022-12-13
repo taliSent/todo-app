@@ -79,5 +79,5 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Acknowledgments
 
-- [Michail](https://vedmedk0.github.io/) - Helped me fix unusual deploy bug
+- [Michail](https://github.com/vedmedk0) - Helped me fix unusual deploy bug
 

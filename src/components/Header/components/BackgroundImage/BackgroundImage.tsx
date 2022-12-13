@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { Context } from "../../../../context/Context";
+import { Context } from "src/context/Context";
 import { getBackgroundSrc } from "../../utils/utils";
 // FIX ME: imports
 import "./../../../../scss/components/_background-image.scss";
