@@ -1,7 +1,7 @@
 import { forwardRef, ReactElement } from "react";
 import { IMG_URL } from "@/constants";
-import useTodosLogic from "@hooks/useTodosLogic";
-import "@scss/components/_checkbox.scss";
+import useTodosLogic from "@/hooks/useTodosLogic";
+import "@/scss/components/_checkbox.scss";
 
 type CheckboxT = {
   children: ReactElement<any, any>;

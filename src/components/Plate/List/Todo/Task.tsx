@@ -1,7 +1,7 @@
 import { FC } from "react";
-import useTodosLogic from "@hooks/useTodosLogic";
+import useTodosLogic from "@/hooks/useTodosLogic";
 import WithCheckbox from "../../../Checkbox/Checkbox";
-import "@scss/components/_task.scss";
+import "@/scss/components/_task.scss";
 
 type TaskT = {
   title: string;

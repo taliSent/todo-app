@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Reorder } from "framer-motion";
-import useTodosLogic from "@hooks/useTodosLogic";
+import useTodosLogic from "@/hooks/useTodosLogic";
 import Task from "./Todo/Task";
-import "@scss/components/_list.scss";
+import "@/scss/components/_list.scss";
 
 const List: FC = () => {
   const { updateTodos, filteredList } = useTodosLogic();

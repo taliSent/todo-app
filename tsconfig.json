@@ -18,11 +18,6 @@
     "baseUrl": "./",
     "paths": {
         "@/*": ["src/*"],
-        "@components/*": ["src/components/*"],
-        "@scss/*": ["src/scss/*"],
-        "@utils/*": ["src/utils/*"],
-        "@hooks/*": ["src/hooks/*"],
-
     }
   },
   "include": ["src"],

@@ -1,7 +1,7 @@
 import { FC, KeyboardEvent } from "react";
-import useInputLogic from "@hooks/useInputLogic";
+import useInputLogic from "@/hooks/useInputLogic";
 import WithCheckbox from "../../Checkbox/Checkbox";
-import "@scss/components/_input.scss";
+import "@/scss/components/_input.scss";
 
 const Input: FC = () => {
   const { addTodoOnEnter, clearTodo, inputRef, checkboxRef } = useInputLogic();

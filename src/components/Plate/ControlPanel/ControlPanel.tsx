@@ -1,8 +1,8 @@
 import { FC } from "react";
-import useTodosLogic from "@hooks/useTodosLogic";
+import useTodosLogic from "@/hooks/useTodosLogic";
 import Filters from "./components/Filters";
-import "@scss/components/_control-panel.scss";
-import "@scss/components/_link.scss";
+import "@/scss/components/_control-panel.scss";
+import "@/scss/components/_link.scss";
 
 const ControlPanel: FC = () => {
   const { incompleteCount, clearCompleted } = useTodosLogic();
