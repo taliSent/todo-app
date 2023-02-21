@@ -20,6 +20,7 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxT>((props, ref) => {
         <input
           type='checkbox'
           className='container__checkbox'
+          aria-label='check to toggle if todo is done'
           checked={isChecked}
           onClick={() => toggleIsCompletedTodo(id)}
           readOnly={!!id}
@@ -28,6 +29,7 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxT>((props, ref) => {
       </div>
       <img
         src={`${IMG_URL}/icon-cross.svg`}
+        alt='button to clear input/delete a task'
         className='container__cross'
         onClick={() => (id ? deleteTodo(id) : clearTodo?.())}
       />

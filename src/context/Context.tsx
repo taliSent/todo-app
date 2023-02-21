@@ -1,4 +1,4 @@
-import { createContext, Dispatch, FunctionComponent, useReducer } from "react";
+import { createContext, Dispatch, FC, ReactNode, useReducer } from "react";
 import { FILTERS, IS_DEFAULT_DARK } from "../constants";
 import themeReducer from "./Reducer";
 import { ActionT, StateT } from "./types";
@@ -10,10 +10,16 @@ const initialValues: StateT = {
   isDarkTheme: IS_DEFAULT_DARK,
 };
 
-export const Context = createContext(initialValues);
-export const DispatchContext = createContext<Dispatch<ActionT>>(() => {});
+type PropsT = {
+  children: ReactNode;
+};
 
-export const ContextProvider: FunctionComponent<any> = ({ children }) => {
+export const Context = createContext(initialValues);
+export const DispatchContext = createContext<Dispatch<ActionT>>(
+  () => undefined
+);
+
+export const ContextProvider: FC<PropsT> = ({ children }) => {
   const [state, dispatch] = useReducer(themeReducer, initialValues);
   return (
     <DispatchContext.Provider value={dispatch}>
@@ -22,7 +28,8 @@ export const ContextProvider: FunctionComponent<any> = ({ children }) => {
   );
 };
 
-export const withContextProvider = (Child: any) => (props: any) => {
+//eslint-disable-next-line react/display-name
+export const withContextProvider = (Child: FC<PropsT>) => (props: PropsT) => {
   return (
     <ContextProvider>
       <Child {...props} />

@@ -10,6 +10,7 @@ const Title = () => {
       <div>{TITLE}</div>
       <img
         src={imgAdress}
+        alt='button to toggle theme'
         className='toggle-theme-icon'
         onClick={handleToggleTheme}
       />
