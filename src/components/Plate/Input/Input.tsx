@@ -11,6 +11,7 @@ const Input: FC = () => {
       <WithCheckbox ref={checkboxRef} clearTodo={clearTodo}>
         <input
           className='input__html'
+          aria-label='type youre todo'
           ref={inputRef}
           type='text'
           onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => addTodoOnEnter(e)}
