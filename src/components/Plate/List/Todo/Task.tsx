@@ -15,7 +15,7 @@ const Task: FC<TaskT> = ({ title, isCompleted, id }: TaskT) => {
   const className = `task task--${isCompleted ? "completed" : ""}`;
   return (
     <div className={className}>
-      <WithCheckbox isChecked={isCompleted} id={id} clearTodo={() => {}}>
+      <WithCheckbox isChecked={isCompleted} id={id}>
         <div className='task__text' onClick={handleClick}>
           {title}
         </div>
