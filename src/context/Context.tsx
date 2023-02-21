@@ -11,7 +11,7 @@ const initialValues: StateT = {
 };
 
 type PropsT = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export const Context = createContext(initialValues);
