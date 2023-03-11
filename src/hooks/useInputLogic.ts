@@ -5,8 +5,8 @@ import { TodoI } from "../model/types";
 import useTodosLogic from "./useTodosLogic";
 
 const useInputLogic = () => {
-  let inputRef = useRef() as RefObject<HTMLInputElement>;
-  let checkboxRef = useRef() as RefObject<HTMLInputElement>;
+  const inputRef = useRef() as RefObject<HTMLInputElement>;
+  const checkboxRef = useRef() as RefObject<HTMLInputElement>;
   const { addTodo } = useTodosLogic();
   const addTodoOnEnter = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {

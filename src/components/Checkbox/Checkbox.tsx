@@ -1,17 +1,17 @@
-import { forwardRef, ReactElement } from "react";
+import { forwardRef, InputHTMLAttributes, ReactElement } from "react";
 import { IMG_URL } from "@/constants";
 import useTodosLogic from "@/hooks/useTodosLogic";
 import "@/scss/components/_checkbox.scss";
 
-type CheckboxT = {
+interface CheckboxI extends InputHTMLAttributes<HTMLInputElement> {
   children: ReactElement;
   isChecked?: boolean;
   id?: string;
   clearTodo?: () => void;
-};
+}
 
-const WithCheckbox = forwardRef<HTMLInputElement, CheckboxT>((props, ref) => {
-  const { children, isChecked, id, clearTodo } = props;
+const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
+  const { children, isChecked, id, clearTodo, ...restProps } = props;
   const { deleteTodo, toggleIsCompletedTodo } = useTodosLogic();
   return (
     <label className='container'>
@@ -25,6 +25,7 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxT>((props, ref) => {
           onClick={() => toggleIsCompletedTodo(id)}
           readOnly={!!id}
           ref={ref}
+          {...restProps}
         />
       </div>
       <img
