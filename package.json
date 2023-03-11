@@ -5,7 +5,7 @@
   "homepage": "https://talisent.github.io/todo-list/",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite serve",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "typedoc": "typedoc --out docs src && touch docs/.nojekyll",
