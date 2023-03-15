@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite serve",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=./",
     "preview": "vite preview",
     "typedoc": "typedoc --out docs src && touch docs/.nojekyll",
     "predeploy": "npm run build",
