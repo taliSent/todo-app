@@ -9,6 +9,7 @@ const useInputLogic = () => {
   const checkboxRef = useRef() as RefObject<HTMLInputElement>;
   const { addTodo } = useTodosLogic();
   const addTodoOnEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (!inputRef?.current?.value) return;
     if (e.key === "Enter") {
       e.preventDefault();
       const newTodo: TodoI = {

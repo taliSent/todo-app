@@ -21,4 +21,6 @@ li {
   font-size: fonts.$font-size;
   font-family: fonts.$font-family;
   font-weight: fonts.$font-weight;
+  transition: background-color .2s ease-out; 
+
 }
