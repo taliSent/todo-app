@@ -28,7 +28,7 @@ const useTodosLogic = () => {
   };
 
   const toggleIsCompletedTodo = (id: string | undefined) => {
-    if (id === undefined) return;
+    if (!id) return;
     const todos = [...todoList];
     const todo = todos.find((todo) => todo.id === id);
     if (todo?.id === undefined) return;

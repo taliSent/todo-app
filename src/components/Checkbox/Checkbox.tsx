@@ -22,8 +22,7 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
           className='container__checkbox'
           aria-label='check to toggle if todo is done'
           checked={isChecked}
-          onClick={() => toggleIsCompletedTodo(id)}
-          readOnly={!!id}
+          onChange={() => toggleIsCompletedTodo(id)}
           ref={ref}
           {...restProps}
         />
