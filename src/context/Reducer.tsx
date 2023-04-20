@@ -1,5 +1,5 @@
-import { filterList } from "../utils/utils";
 import { ActionT, StateT, ACTIONS } from "./types";
+import { filterList } from "./utils";
 
 const themeReducer = (state: StateT, action: ActionT) => {
   switch (action.type) {

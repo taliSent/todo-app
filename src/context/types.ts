@@ -8,10 +8,21 @@ export type StateT = {
   isDarkTheme: boolean;
 };
 
-export type ActionT = {
-  type: ACTIONS.SWITCH_THEME | ACTIONS.CHANGE_TODOS | ACTIONS.SELECT_FILTER;
-  payload?: any;
+export type ActionSwitch = {
+  type: ACTIONS.SWITCH_THEME;
 };
+
+export type ActionTodos = {
+  type: ACTIONS.CHANGE_TODOS;
+  payload: TodoI[];
+};
+
+export type ActionFilter = {
+  type: ACTIONS.SELECT_FILTER;
+  payload: FILTERS;
+};
+
+export type ActionT = ActionSwitch | ActionTodos | ActionFilter;
 
 export enum ACTIONS {
   CHANGE_TODOS,
