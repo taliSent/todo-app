@@ -15,4 +15,4 @@ const App: FC = () => {
   );
 };
 
-export default withContextProvider(App);
+export default App;

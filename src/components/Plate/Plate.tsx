@@ -3,6 +3,7 @@ import ControlPanel from "./ControlPanel/ControlPanel";
 import InputWithCheckbox from "./InputWithCheckbox/InputWithCheckbox";
 import List from "./List/List";
 import "@/scss/components/_plate.scss";
+import { withContextProvider } from "@/context/Context";
 
 const Plate: FC = () => {
   return (
@@ -14,4 +15,4 @@ const Plate: FC = () => {
     </div>
   );
 };
-export default Plate;
+export default withContextProvider(Plate);
