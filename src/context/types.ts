@@ -1,15 +1,14 @@
 import { FILTERS } from "../constants";
 import { TodoI } from "../model/types";
 
-export type StateT = {
+export type StateTodosT = {
   todoList: TodoI[];
   selectedFilter: FILTERS;
   filteredList: TodoI[];
-  isDarkTheme: boolean;
 };
 
-export type ActionSwitch = {
-  type: ACTIONS.SWITCH_THEME;
+export type StateThemeT = {
+  isDarkTheme: boolean;
 };
 
 export type ActionTodos = {
@@ -22,7 +21,7 @@ export type ActionFilter = {
   payload: FILTERS;
 };
 
-export type ActionT = ActionSwitch | ActionTodos | ActionFilter;
+export type ActionT = ActionTodos | ActionFilter;
 
 export enum ACTIONS {
   CHANGE_TODOS,

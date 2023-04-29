@@ -3,7 +3,7 @@ import ControlPanel from "./ControlPanel/ControlPanel";
 import InputWithCheckbox from "./InputWithCheckbox/InputWithCheckbox";
 import List from "./List/List";
 import "@/scss/components/_plate.scss";
-import { withContextProvider } from "@/context/Context";
+import { withContextProvider } from "@/context/ContextTodos";
 
 const Plate: FC = () => {
   return (

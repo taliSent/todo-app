@@ -1,10 +1,11 @@
 import { useContext, useEffect } from "react";
-import { Context, DispatchContext } from "@/context/Context";
 import { getTodoList } from "@/utils/utils";
+import { ContextTheme } from "@/context/ContextTheme";
+import { DispatchContextTodos } from "@/context/ContextTodos";
 
 const useAppLogic = () => {
-  const dispatch = useContext(DispatchContext);
-  const { isDarkTheme } = useContext(Context);
+  const dispatch = useContext(DispatchContextTodos);
+  const isDarkTheme = useContext(ContextTheme);
   useEffect(() => {
     getTodoList(dispatch);
   }, []);

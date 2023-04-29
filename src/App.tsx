@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Header from "./components/Header/Header";
 import Plate from "./components/Plate/Plate";
-import { withContextProvider } from "./context/Context";
 import useAppLogic from "./hooks/useAppLogic";
 import "./index.scss";
+import { withContextThemeProvider } from "./context/ContextTheme";
 
 const App: FC = () => {
   const { themeName } = useAppLogic();
@@ -15,4 +15,4 @@ const App: FC = () => {
   );
 };
 
-export default App;
+export default withContextThemeProvider(App);

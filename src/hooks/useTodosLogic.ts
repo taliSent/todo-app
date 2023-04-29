@@ -1,12 +1,15 @@
-import { useContext } from "react";
-import { Context, DispatchContext } from "../context/Context";
+import { getTodoList, setNewTodos } from "@/utils/utils";
+import { useContext, useEffect } from "react";
+import { ContextTodos, DispatchContextTodos } from "../context/ContextTodos";
 import { TodoI } from "../model/types";
-import { setNewTodos } from "@/utils/utils";
 
 const useTodosLogic = () => {
   // TODO: add typization to all the hooks
-  const dispatch = useContext(DispatchContext);
-  const { todoList, filteredList } = useContext(Context);
+  const dispatch = useContext(DispatchContextTodos);
+  useEffect(() => {
+    getTodoList(dispatch);
+  }, []);
+  const { todoList, filteredList } = useContext(ContextTodos);
   const updateTodos = setNewTodos(dispatch);
 
   const addTodo = (todo: TodoI) => {

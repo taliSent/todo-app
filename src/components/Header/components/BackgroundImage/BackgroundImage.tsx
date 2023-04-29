@@ -1,10 +1,10 @@
-import { FC, useContext } from "react";
-import { Context } from "@/context/Context";
-import { getBackgroundSrc } from "../../utils/utils";
+import { ContextTheme } from "@/context/ContextTheme";
 import "@/scss/components/_background-image.scss";
+import { FC, useContext } from "react";
+import { getBackgroundSrc } from "../../utils/utils";
 
 const BackgroundImage: FC = () => {
-  const { isDarkTheme } = useContext(Context);
+  const isDarkTheme = useContext(ContextTheme);
   return (
     <img
       src={getBackgroundSrc(isDarkTheme)}

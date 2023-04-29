@@ -1,11 +1,8 @@
-import { ActionT, StateT, ACTIONS } from "./types";
+import { ActionT, StateTodosT, ACTIONS } from "./types";
 import { filterList } from "./utils";
 
-const themeReducer = (state: StateT, action: ActionT) => {
+const themeReducer = (state: StateTodosT, action: ActionT) => {
   switch (action.type) {
-    case ACTIONS.SWITCH_THEME: {
-      return { ...state, isDarkTheme: !state.isDarkTheme };
-    }
     case ACTIONS.CHANGE_TODOS: {
       return {
         ...state,
