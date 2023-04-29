@@ -12,7 +12,7 @@ $br: sizes.$br;
    text-align: center;
    border-bottom: 1px solid;
    &:first-child {
-      border-radius: 5px 5px 0 0;
+      border-radius: $br $br 0 0;
    }
 
    &--completed {

@@ -13,17 +13,18 @@ interface CheckboxI extends InputHTMLAttributes<HTMLInputElement> {
 const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
   const { children, isChecked, id, clearTodo, ...restProps } = props;
   const { deleteTodo, toggleIsCompletedTodo } = useTodosLogic();
+
   return (
-    <label className='container'>
+    <div className='container'>
       <>{children}</>
       <div className='container__checkmark'>
         <input
           type='checkbox'
           className='container__checkbox'
           aria-label='check to toggle if todo is done'
-          checked={isChecked}
-          onChange={() => toggleIsCompletedTodo(id)}
+          value={`${isChecked}`}
           ref={ref}
+          onChange={(e) => toggleIsCompletedTodo(id)}
           {...restProps}
         />
       </div>
@@ -33,7 +34,7 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
         className='container__cross'
         onClick={() => (id ? deleteTodo(id) : clearTodo?.())}
       />
-    </label>
+    </div>
   );
 });
 
