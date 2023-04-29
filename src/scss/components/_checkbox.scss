@@ -42,12 +42,6 @@
 
     /* Create the checkmark/indicator (hidden when not checked) */
 
-    &::after {
-      content: "";
-      position: absolute;
-      display: none;
-    }
-
     /* On mouse-over, add a frame */
 
     &:hover:not(:has(> input:checked)) {
@@ -59,21 +53,20 @@
     &:has(> input:checked) {
       background: colors.$check-background;
       border: none;
+    }
+    /* Show the checkmark when checked */
 
-      /* Show the checkmark when checked */
-
-      &::after {
-        display: block;
-        left: 35%;
-        top: 15%;
-        width: 5px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-      }
+    &__icon-done {
+      display: block;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: translate(120%, 30%) rotate(45deg);
+      -webkit-transform: translate(120%, 30%) rotate(45deg);
+      -ms-transform: translate(120%, 30%) rotate(45deg);
     }
   }
   &__cross {

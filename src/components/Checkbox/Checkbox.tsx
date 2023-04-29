@@ -24,8 +24,12 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
           aria-label='check to toggle if todo is done'
           value={`${isChecked}`}
           ref={ref}
-          onChange={(e) => toggleIsCompletedTodo(id)}
+          onChange={() => toggleIsCompletedTodo(id)}
           {...restProps}
+        />
+        <img
+          className='container__icon-done'
+          src={`${IMG_URL}/icon-check.svg`}
         />
       </div>
       <img
