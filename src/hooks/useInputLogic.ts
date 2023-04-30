@@ -1,12 +1,12 @@
 // import { FC } from "react";
-import { KeyboardEvent, RefObject, useRef } from "react";
+import { KeyboardEvent, RefObject, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { TodoI } from "../model/types";
 import useTodosLogic from "./useTodosLogic";
 
 const useInputLogic = () => {
   const inputRef = useRef() as RefObject<HTMLInputElement>;
-  const checkboxRef = useRef() as RefObject<HTMLInputElement>;
+  const [checkboxChecked, setCheckboxChecked] = useState(false);
   const { addTodo } = useTodosLogic();
   const addTodoOnEnter = (e: KeyboardEvent<HTMLInputElement>) => {
     if (!inputRef?.current?.value) return;
@@ -15,7 +15,7 @@ const useInputLogic = () => {
       const newTodo: TodoI = {
         id: uuidv4(),
         title: inputRef?.current?.value || "",
-        isCompleted: checkboxRef?.current?.checked || false,
+        isCompleted: checkboxChecked,
       };
       addTodo(newTodo);
       clearTodo();
@@ -25,16 +25,15 @@ const useInputLogic = () => {
     if (inputRef?.current?.value) {
       inputRef.current.value = "";
     }
-    if (checkboxRef?.current?.checked) {
-      checkboxRef.current.checked = false;
-    }
   };
 
   return {
     addTodoOnEnter,
     clearTodo,
     inputRef,
-    checkboxRef,
+    isChecked: checkboxChecked,
+    toggleIsCompletedTodo: () => setCheckboxChecked((prev) => !prev),
+    // checkboxRef,
   };
 };
 

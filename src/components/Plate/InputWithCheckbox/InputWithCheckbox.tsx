@@ -12,10 +12,21 @@ const Input: FC<InputWithCheckboxT> = ({
   propsInput,
   propsCheckbox,
 }: InputWithCheckboxT) => {
-  const { addTodoOnEnter, clearTodo, inputRef, checkboxRef } = useInputLogic();
+  const {
+    addTodoOnEnter,
+    clearTodo,
+    inputRef,
+    isChecked,
+    toggleIsCompletedTodo,
+  } = useInputLogic();
   return (
     <div className='input'>
-      <WithCheckbox ref={checkboxRef} clearTodo={clearTodo} {...propsCheckbox}>
+      <WithCheckbox
+        toggleIsCompletedTodo={toggleIsCompletedTodo}
+        isChecked={isChecked}
+        clearTodo={clearTodo}
+        {...propsCheckbox}
+      >
         <input
           className={`input__html ${propsInput?.className}`}
           aria-label='type your todo'

@@ -1,18 +1,26 @@
-import { forwardRef, InputHTMLAttributes, ReactElement } from "react";
+import { FC, InputHTMLAttributes, ReactElement } from "react";
 import { IMG_URL } from "@/constants";
-import useTodosLogic from "@/hooks/useTodosLogic";
 import "@/scss/components/_checkbox.scss";
 
 interface CheckboxI extends InputHTMLAttributes<HTMLInputElement> {
   children: ReactElement;
-  isChecked?: boolean;
+  isChecked: boolean;
   id?: string;
+  deleteTodo?: (id: string) => void;
+  toggleIsCompletedTodo: (id?: string) => void;
   clearTodo?: () => void;
 }
-
-const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
-  const { children, isChecked, id, clearTodo, ...restProps } = props;
-  const { deleteTodo, toggleIsCompletedTodo } = useTodosLogic();
+//TODO: fix TS
+const WithCheckbox: FC<CheckboxI> = (props) => {
+  const {
+    children,
+    isChecked,
+    id,
+    toggleIsCompletedTodo,
+    clearTodo,
+    deleteTodo,
+    ...restProps
+  } = props;
   return (
     <div className='container'>
       <div
@@ -28,7 +36,6 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
           className='container__checkmark__checkbox'
           aria-label='check to toggle if todo is done'
           checked={isChecked}
-          ref={ref}
           {...restProps}
         />
         {isChecked && (
@@ -44,11 +51,11 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
         src={`${IMG_URL}/icon-cross.svg`}
         alt='button to clear input/delete a task'
         className='container__cross'
-        onClick={() => (id ? deleteTodo(id) : clearTodo?.())}
+        onClick={() => (id ? deleteTodo?.(id) : clearTodo?.())}
       />
     </div>
   );
-});
+};
 
 WithCheckbox.displayName = "WithCheckbox";
 
