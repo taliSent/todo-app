@@ -13,7 +13,6 @@ const Input: FC<InputWithCheckboxT> = ({
   propsCheckbox,
 }: InputWithCheckboxT) => {
   const { addTodoOnEnter, clearTodo, inputRef, checkboxRef } = useInputLogic();
-
   return (
     <div className='input'>
       <WithCheckbox ref={checkboxRef} clearTodo={clearTodo} {...propsCheckbox}>

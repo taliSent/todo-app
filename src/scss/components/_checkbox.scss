@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 0.5em;
   gap: 1em;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -41,8 +40,6 @@
     }
     /* Show the checkmark when checked */
     &__checkbox {
-      top: 0;
-      left: 0;
       opacity: 0;
       height: 1.3em;
       width: 1.3em;
@@ -59,9 +56,9 @@
       right: 0;
       bottom: 0;
       border-width: 0 3px 3px 0;
-      transform: translate(30%, 50%);
-      -webkit-transform: translate(30%, 50%);
-      -ms-transform: translate(30%, 50%);
+      transform: translate(35%, 50%);
+      -webkit-transform: translate(35%, 50%);
+      -ms-transform: translate(35%, 50%);
       cursor: pointer;
     }
   }

@@ -13,14 +13,15 @@ interface CheckboxI extends InputHTMLAttributes<HTMLInputElement> {
 const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
   const { children, isChecked, id, clearTodo, ...restProps } = props;
   const { deleteTodo, toggleIsCompletedTodo } = useTodosLogic();
-
   return (
     <div className='container'>
       <div
         className={`container__checkmark container__checkmark--${
           isChecked ? "checked" : "unchecked"
         }`}
-        onClick={() => toggleIsCompletedTodo(id)}
+        onClick={() => {
+          toggleIsCompletedTodo(id);
+        }}
       >
         <input
           type='checkbox'
@@ -30,10 +31,13 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
           ref={ref}
           {...restProps}
         />
-        <img
-          className='container__checkmark__icon-done'
-          src={`${IMG_URL}/icon-check.svg`}
-        />
+        {isChecked && (
+          <img
+            className={`container__checkmark__icon-done`}
+            alt={`icon-done`}
+            src={`${IMG_URL}/icon-check.svg`}
+          />
+        )}
       </div>
       <>{children}</>
       <img

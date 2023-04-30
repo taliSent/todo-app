@@ -12,6 +12,7 @@ const Title = () => {
         src={imgAdress}
         alt='button to toggle theme'
         className='toggle-theme-icon'
+        height='15px'
         onClick={handleToggleTheme}
         data-testid='toggle-theme'
       />

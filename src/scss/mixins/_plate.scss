@@ -4,5 +4,5 @@
 @mixin plate {
   @include themify("background-color", "plate");
   @include themify("color", "text");
-  padding: 0.7em 0.7em;
+  padding: 1em;
 }
