@@ -16,22 +16,26 @@ const WithCheckbox = forwardRef<HTMLInputElement, CheckboxI>((props, ref) => {
 
   return (
     <div className='container'>
-      <>{children}</>
-      <div className='container__checkmark'>
+      <div
+        className={`container__checkmark container__checkmark--${
+          isChecked ? "checked" : "unchecked"
+        }`}
+        onClick={() => toggleIsCompletedTodo(id)}
+      >
         <input
           type='checkbox'
-          className='container__checkbox'
+          className='container__checkmark__checkbox'
           aria-label='check to toggle if todo is done'
           checked={isChecked}
           ref={ref}
-          onChange={() => toggleIsCompletedTodo(id)}
           {...restProps}
         />
         <img
-          className='container__icon-done'
+          className='container__checkmark__icon-done'
           src={`${IMG_URL}/icon-check.svg`}
         />
       </div>
+      <>{children}</>
       <img
         src={`${IMG_URL}/icon-cross.svg`}
         alt='button to clear input/delete a task'

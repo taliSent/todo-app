@@ -9,9 +9,6 @@
     @each $mode in $themeNames {
         $themeColorSet: map.get($themes, $mode);
         $color: map.get($themeColorSet, $element);
-        // &--#{$mode} {
-        //     #{$property}: $color;
-        // }
         @if (#{&} == ".App") {
             &--#{$mode} {
                 #{$property}: $color;
