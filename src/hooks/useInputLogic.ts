@@ -25,6 +25,7 @@ const useInputLogic = () => {
     if (inputRef?.current?.value) {
       inputRef.current.value = "";
     }
+    setCheckboxChecked(false);
   };
 
   return {
