@@ -10,7 +10,7 @@ const useTitleLogic = () => {
     ? `${IMG_URL}/icon-sun.svg`
     : `${IMG_URL}/icon-moon.svg`;
 
-  return { imgAdress, handleToggleTheme: toggleTheme };
+  return { imgAdress, toggleTheme };
 };
 
 export default useTitleLogic;

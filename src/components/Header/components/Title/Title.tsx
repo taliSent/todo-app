@@ -2,9 +2,9 @@ import useTitleLogic from "@/hooks/useTitleLogic";
 import "@/scss/components/_title.scss";
 
 const TITLE = "T O D O";
-//TODO: fix this
+
 const Title = () => {
-  const { imgAdress, handleToggleTheme } = useTitleLogic();
+  const { imgAdress, toggleTheme } = useTitleLogic();
   return (
     <h1 className='title' data-testid='title'>
       <div>{TITLE}</div>
@@ -13,7 +13,8 @@ const Title = () => {
         alt='button to toggle theme'
         className='toggle-theme-icon'
         height='15px'
-        onClick={handleToggleTheme}
+        onClick={() => toggleTheme((prev: boolean) => !prev)}
+        role='button'
         data-testid='toggle-theme'
       />
     </h1>
