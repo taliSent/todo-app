@@ -16,11 +16,10 @@ li {
 }
 .App {
   @include themify("background-color", "background");
-  height: 100vh;
+  min-height: 100vh;
   font-family: fonts.$font-family;
   font-size: fonts.$font-size;
   font-family: fonts.$font-family;
   font-weight: fonts.$font-weight;
-  transition: background-color .2s ease-out; 
-
+  transition: background-color 0.2s ease-out;
 }
